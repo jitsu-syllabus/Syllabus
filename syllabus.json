@@ -1,0 +1,398 @@
+{
+  "Yellow Belt 7th Kyu": {
+    "color": "#f7e200",
+    "Ukemi Waza": [
+      "Kneeling Ukemi",
+      "Standing sideways (static)",
+      "Pegleg"
+    ],
+    "Martial Warmup Drills": [
+      "Stance mirroring footwork drill",
+      "Arm drag drill (left/right)",
+      "Shrimping",
+      "Bridging"
+    ],
+    "Releases": [
+      "Single handed straight wrist grab",
+      "Single handed cross wrist grab",
+      "Front hair grab",
+      "Front double handed strangle"
+    ],
+    "Atemi Waza": [
+      "Open hand",
+      "Palm heel",
+      "Hammerfist",
+      "Inner forearm",
+      "Elbow horizontal",
+      "Straight punch",
+      "Roundhouse punch",
+      "Basic execution of complementary atemi where directed with control",
+      "Uke to deliver clean and controlled straight and roundhouse punches on target with all permutations of footwork",
+      "Ability to attack as uke with control appropriate to the scenario, risk of injury from the attack and tori's grade/condition"
+    ],
+    "Kansetsu Waza": [
+      "Armlock 1 on the inside (from roundhouse punch)",
+      "Armlock 2 (from straight punch)",
+      "Armlock 2 for tall person (from straight punch)",
+      "Wristlock 3 (from wrist grab)",
+      "Wristlock 3 (from front double hand throat strangle)"
+    ],
+    "Nage Waza": [
+      "8 point Kuzushi Kata (in migi shizentai = right forward stance)",
+      "Kosoto Gake (from straight wrist grab – use arm drag principle)",
+      "Kosoto Gake (from push – inside arm roll to arm drag)",
+      "Kosoto Gari (from straight punch)",
+      "Kosoto Gari (from back hand strike to head with bottle)",
+      "Osoto Gari (from roundhouse punch to 45° stance)",
+      "Osoto Gari (from downward strike to head with bottle)",
+      "Osoto Gake (uke steps forward into sleeve/lapel grip and pushes tori back)"
+    ],
+    "Ne Waza": [
+      "Distancing/orientation drill on back from standing attacker",
+      "Guard retention",
+      "Technical stand up",
+      "Kesa Gatame",
+      "Mune Gatame",
+      "Kami Shiho Gatame"
+    ],
+    "Scenario Training": [
+      "Introduction to defence in a 'V' from punches and bottles"
+    ],
+    "Expected Competencies": [
+      "Basic understanding of awareness and basic self-defence messages (incl exit strategy)",
+      "Good understanding of stance (yoi) with good posture",
+      "Demonstrate fitness and core strength corresponding with age and physical limitations"
+    ]
+  },
+  "Orange Belt 6th Kyu": {
+    "color": "#f28c28",
+    "Ukemi Waza": [
+      "Standing Ukemi",
+      "Over-the-belt",
+      "Side drop/kick-up and drop",
+      "Shoulder roll/Granby roll"
+    ],
+    "Martial Warmup Drills": [
+      "Basic de-escalation drill (lowering voice and moving away)",
+      "Standard Kumi Kata drill (from sleeve and lapel grab – left/right)",
+      "High Kumi Kata drill (from high sleeve and collar grab – left/right)",
+      "Sankaku Jime drill",
+      "Juji Gatame drill",
+      "Footwork with striking drills (on your own/'shadow')"
+    ],
+    "Releases": [
+      "Double wrist grab",
+      "Two handed single wrist grab",
+      "Rear hair grab",
+      "Rear two handed strangle",
+      "Front single handed strangle"
+    ],
+    "Atemi Waza": [
+      "Blade edge hand/knife hand",
+      "Forearm (outside)",
+      "Mae Geri",
+      "Mae Washi Geri (low level)",
+      "Knee",
+      "Heel stomp",
+      "Jab punch",
+      "Cross punch",
+      "Uke to deliver clean and controlled jab and cross punches with appropriate force",
+      "Basic execution of complementary atemi with control",
+      "Appropriate ground defensive striking with correct posture"
+    ],
+    "Kansetsu Waza": [
+      "Armlock 1 on the outside (from straight wrist grab and arm drag)",
+      "Armlock 3 (from single/double lapel grab and throat grab)",
+      "Armlock 4 (from over arm front body grab)",
+      "Armlock 2 → Armlock 1 transition",
+      "Armlock 4 (from under arm rear body grab)"
+    ],
+    "Nage Waza": [
+      "Koshi Guruma (from roundhouse punch)",
+      "O Goshi (from over arm front body grab)",
+      "Kouchi Gari (from front kick)",
+      "Kosoto Gari (from downward strike to head with cosh)",
+      "Kosoto Gari (from back hand strike to head with cosh)",
+      "Kosoto Gake (from under arm front body grab)",
+      "Osoto Gari → Koshi Guruma combination"
+    ],
+    "Ne Waza": [
+      "Closed guard",
+      "Scissor sweep",
+      "Hip bump sweep",
+      "Tripod sweep against standing attacker",
+      "Counters to hold downs from previous grade"
+    ],
+    "Scenario Training": [
+      "Introduction to defence in a circle from wrist and body grabs"
+    ],
+    "Expected Competencies": [
+      "Knowledge of the importance of jitsu-focused warm-up, mobility and cool-down techniques"
+    ]
+  },
+  "Green Belt 5th Kyu": {
+    "color": "#3db945",
+    "Ukemi Waza": [
+      "Drop",
+      "Judo roll",
+      "Diving forwards roll over someone on all fours",
+      "Off-the-back from someone on all fours"
+    ],
+    "Martial Warmup Drills": [
+      "Over/under pummeling drill (left/right)",
+      "Collar tie pummeling drill (left/right)",
+      "Ashi Sankaku Garami drill (Omaplata drill)"
+    ],
+    "Releases": [
+      "Wrist grabs from reverse grips",
+      "Lower sleeve grab break",
+      "Upper sleeve grab break",
+      "Grip release vs standing attacker grabbing trousers",
+      "Grip release vs prone attacker whilst standing",
+      "Grip release vs prone attacker whilst kneeling"
+    ],
+    "Atemi Waza": [
+      "Elbow vertical, rear and spike",
+      "Hook",
+      "Uppercut",
+      "Mae Washi Geri (mid level)",
+      "Yoko Geri (low level)",
+      "Uke to deliver controlled kicks and punches on target",
+      "Execution of complementary atemi with power, control and accuracy",
+      "Ground defensive strikes in realistic scenarios"
+    ],
+    "Kansetsu Waza": [
+      "Armlock 4 (from kidney knife attack)",
+      "Armlock 5 (from abdomen knife attack)",
+      "Armlock 6 (from cross wrist grab)",
+      "Armlock 2 → Wristlock 1 → Ground Restraint 1 or 4",
+      "Armlock 2 → Wristlock 4"
+    ],
+    "Nage Waza": [
+      "Ippon Seoi Nage (from downward strike)",
+      "Seoi Otoshi (from over arm rear body grab)",
+      "Ouchi Gari (from front kick)",
+      "Osoto Gari (from hair grab)",
+      "Koshi Guruma (from two handed grab towards throat)",
+      "O Goshi (from 45° cosh attack to head)",
+      "Ouchi to Osoto combination",
+      "Osoto to Ouchi combination"
+    ],
+    "Ne Waza": [
+      "Kata Gatame",
+      "Ude Gatame",
+      "Tate Shiho Gatame",
+      "Uki Gatame (knee on belly)",
+      "Defence against mounted attacker"
+    ],
+    "Scenario Training": [
+      "Circle defence against punches and kicks",
+      "'V' defence vs punch, kick, knife, cosh and bottle",
+      "Defence against grab and punch"
+    ],
+    "Expected Competencies": [
+      "Dynamic movement in yoi to maintain distance and control uke",
+      "Basic understanding of ambush and threats"
+    ]
+  },
+  "Purple Belt 4th Kyu": {
+    "color": "#800080",
+    "Martial Warmup Drills": [
+      "Ayumi Ashi drill (linear movement — changing feet)",
+      "Tsugi Ashi drill (linear movement — sliding feet)",
+      "Kumi Kata drills (with rotational movement)",
+      "Transition flow drill (similar to round the clock)"
+    ],
+    "Releases": [
+      "Two ukes grabbing wrists",
+      "Lapel grab grip break",
+      "Collar grab grip break"
+    ],
+    "Atemi Waza": [
+      "Use of head butt",
+      "Skilled execution of complementary atemi where required",
+      "Uke to follow up with another attack if initial strike is uncontrolled",
+      "Two-person resistive attacks including weapons with control and timing",
+      "Ground defensive striking to facilitate disarming"
+    ],
+    "Kansetsu Waza": [
+      "Armlock 2 → Wristlock 1 → Ground Restraint 4 → Ground Restraint 5",
+      "Armlock 2 → Wristlock 4 → Wristlock 6 (figure 4)",
+      "Armlock 2 for tall person → Wristlock 5",
+      "Armlock 6 → Wristlock 6 (figure 4) or Armlock 3 (figure 4)",
+      "Wristlock 5 (from side head lock)"
+    ],
+    "Nage Waza": [
+      "Uki Goshi (from left side lead straight punch)",
+      "Harai Goshi (from over arm front body grab)",
+      "Seio Toshi (from rear naked choke)",
+      "Hane Goshi (from left side lead straight punch)",
+      "Kouchi Gari (in grappling — under load)",
+      "Uke Waza (assisted ukemi from strike)",
+      "Nage No Kata: Uki Otoshi, Seio Nage, Uke Waza"
+    ],
+    "Ne Waza": [
+      "Counters to hold downs from previous grades",
+      "Sankaku Jime (triangle)",
+      "Ashi Sankaku Garami (Omaplata)",
+      "Extraction from closed guard"
+    ],
+    "Scenario Training": [
+      "Defence vs two attackers with punches",
+      "Defence vs two attackers armed with bottles"
+    ],
+    "Expected Competencies": [
+      "Experience teaching under instructor supervision",
+      "Completed club assistant instructor course"
+    ]
+  },
+  "Light Blue Belt 3rd Kyu": {
+    "color": "#add8e6",
+    "Ukemi Waza": [
+      "Over-the-belt unsupported",
+      "Handstand breakfall"
+    ],
+    "Martial Warmup Drills": [
+      "Russian arm tie drill (left/right)",
+      "Strike and cover drills (legs and arms)"
+    ],
+    "Releases": [
+      "Half neck clinch (use Russian arm tie principle)",
+      "Cosh strip from inside movement",
+      "Cosh strip from outside movement"
+    ],
+    "Atemi Waza": [
+      "Finger and knuckle strikes to vulnerable areas",
+      "Low kicks (calves and ankles)",
+      "Combination striking development",
+      "2-strike combinations from uke",
+      "2-strike combinations from tori",
+      "Uke to deliver any attack/combination with correct form and distance",
+      "Consistently skilled complementary atemi under pressure",
+      "Defensive striking during uke descent"
+    ],
+    "Kansetsu Waza": [
+      "Armlock 4 (force uke to ground face down)",
+      "Armlock 5 (into Waki Gatame)",
+      "Wristlock 3 → Ude Gatame transition",
+      "Armlock 2 → Wristlock 4 → Wristlock 6 → Ground Restraint 2",
+      "Armlock 6 → Wristlock 6 → Ground Restraint 3"
+    ],
+    "Nage Waza": [
+      "Kata Hiza Seoi Nage (from choke)",
+      "Ippon Seio Nage (early throw)",
+      "Tani Otoshi (from straight punch)",
+      "Osoto Guruma (replaces Osoto Otoshi)",
+      "Kosoto Gari (from cross punch)",
+      "Osoto Gari (rear leg)",
+      "Yoko Otoshi (assisted ukemi)",
+      "Osoto Gake → Seio Toshi combination"
+    ],
+    "Ne Waza": [
+      "Kuzure Kami Shiho Gatame",
+      "Gyaku Ude Garami (Kimura)",
+      "Ude Garami (Americana)",
+      "Mount escape to half guard drill"
+    ],
+    "Shime Waza": [
+      "Gyaku Juji Jime (Reverse cross strangle)",
+      "Nami Juji Jime (Cross strangle)",
+      "Ryote Jime",
+      "Okuri Eri Jime (Loop choke)",
+      "Kata Ha Jime",
+      "Sode Guruma Jime (Ezekiel choke)",
+      "Hadaka Jime (from back take)"
+    ],
+    "Scenario Training": [
+      "Defence vs two attackers unarmed with mixed weapons",
+      "Defence from an ambush from behind"
+    ],
+    "Expected Competencies": [
+      "Completed club assistant instructor course"
+    ]
+  },
+  "Dark Blue Belt 2nd Kyu": {
+    "color": "#00008b",
+    "Ukemi Waza": [
+      "Forward roll with extended height and distance"
+    ],
+    "Releases": [
+      "Single leg grab",
+      "Double leg grab/Rugby tackle"
+    ],
+    "Atemi Waza": [
+      "Combinations of complementary atemi vs multiple ukes",
+      "Disarms and put-downs under pressure",
+      "Uke follows tori, moves in/out of range with advanced ukeing"
+    ],
+    "Nage Waza": [
+      "Yamai Arashi (from katana/bat attack)",
+      "Kuki Nage (from forehand swing)",
+      "Irimi Nage (from backhand swing)",
+      "Osoto Guruma (fast throw over hip)",
+      "Tani Otoshi (arm drag to rear clinch drop)",
+      "Yoko Wakare (assisted ukemi)",
+      "Nage No Kata: Uki Goshi, Ura Nage, Yoko Guruma"
+    ],
+    "Ne Waza": [
+      "Counter to Kuzure Kami Shiho Gatame",
+      "Half guard",
+      "Half guard sweep from Whizzer defence",
+      "Back take from half guard"
+    ],
+    "Scenario Training": [
+      "Defence vs broken bottle",
+      "Use of cosh vs unarmed attackers",
+      "Use of cosh vs armed attackers",
+      "Defensive use of weapons",
+      "Defence from grab ambush when kneeling"
+    ],
+    "Expected Competencies": [
+      "Published February 2024"
+    ]
+  },
+  "Brown Belt 1st Kyu": {
+    "color": "#a52a2a",
+    "Ukemi Waza": [
+      "Drop from legs being pulled away",
+      "Cross forward roll",
+      "Cartwheel"
+    ],
+    "Releases": [
+      "Full neck clinch"
+    ],
+    "Atemi Waza": [
+      "Yoko Geri (mid level)",
+      "Role-based combination striking drills",
+      "Combinations vs multiple resistive ukes under high pressure",
+      "Uke follows tori with punch combinations"
+    ],
+    "Nage Waza": [
+      "Sumi Gaeshi (from punch/grappling)",
+      "Tawara Gaeshi",
+      "Ashi Dori (from side headlock)",
+      "Suki Nage (from rear body grab)",
+      "Osoto Gake (from rear naked strangle)",
+      "Yoko Guruma (assisted ukemi)",
+      "Nage No Kata: Uki Otoshi, Seio Nage, Uki Goshi, Ura Nage, Yoko Guruma, Uke Waza"
+    ],
+    "Ne Waza": [
+      "Single leg X guard entry drill"
+    ],
+    "Scenario Training": [
+      "Knife defence (stabs and slash)",
+      "Broken bottle defence",
+      "Defence vs punch and kick combinations",
+      "Defence vs two attackers with varied weapons",
+      "Close quarters defence",
+      "Defence vs one hand hair grab + punch/knee",
+      "Defence from back ambush when lying face down",
+      "Pressure: peacocking and response",
+      "Pressure: milling"
+    ],
+    "Expected Competencies": [
+      "Completed club instructor and first aid courses",
+      "Full knowledge of TJJF Judo competition rules"
+    ]
+  }
+}

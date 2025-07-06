@@ -1,0 +1,67 @@
+:root {
+  --bg: #f9f9f9;
+  --fg: #333;
+  --primary: #0275d8;
+  --transition: 0.3s;
+}
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  transition: background var(--transition), color var(--transition);
+}
+header {
+  padding: 1rem;
+  background: var(--primary);
+  color: #fff;
+}
+header h1 {
+  margin: 0 0 1rem;
+}
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.filter.search { flex: 1; }
+.filter.toggle { margin-left: auto; }
+.swatch {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid #333;
+  vertical-align: middle;
+}
+main {
+  padding: 1rem;
+}
+.technique {
+  border-bottom: 1px solid #ddd;
+  padding: 0.5rem 0;
+}
+.technique h3 {
+  margin: 0;
+  cursor: pointer;
+}
+.technique ul {
+  margin: 0.5rem 0 0 1rem;
+  display: none;
+}
+.technique.expanded ul {
+  display: block;
+}
+
+/* Dark Mode */
+body.dark {
+  --bg: #222;
+  --fg: #eee;
+  --primary: #444;
+}
+
+
