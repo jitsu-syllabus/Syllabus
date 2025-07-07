@@ -81,8 +81,14 @@ function displayNested(data) {
 
     for (const group in data[belt]) {
       const groupHeading = document.createElement('h3');
-      groupHeading.textContent = group;
-      main.appendChild(groupHeading);
+
+// Prevent accidental color codes from appearing as text
+const cleanGroupName = group.replace(/^#?[0-9a-f]{3,6}$/i, '').trim();
+
+if (cleanGroupName) {
+  groupHeading.textContent = cleanGroupName;
+  main.appendChild(groupHeading);
+}
 
       const ul = document.createElement('ul');
       data[belt][group].forEach(technique => {
