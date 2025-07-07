@@ -37,7 +37,13 @@ function render() {
   const beltFilter = beltSelect.value;
   const catFilter = categorySelect.value;
   const search = searchInput.value.toLowerCase();
-  beltSwatch.style.background = (beltFilter !== 'All' && rawData[beltFilter]?.color) || 'transparent';
+
+  // ✅ Belt color swatch fix
+  if (beltFilter !== 'All' && rawData[beltFilter]?.color) {
+    beltSwatch.style.background = rawData[beltFilter].color;
+  } else {
+    beltSwatch.style.background = 'transparent';
+  }
 
   const filtered = {};
 
@@ -63,37 +69,4 @@ function render() {
 function displayNested(data) {
   main.innerHTML = '';
 
-  if (Object.keys(data).length === 0) {
-    main.innerHTML = '<p>No matches found.</p>';
-    return;
-  }
-
-  for (const belt in data) {
-    const beltHeading = document.createElement('h2');
-    beltHeading.textContent = `${belt} Belt`;
-    main.appendChild(beltHeading);
-
-    for (const group in data[belt]) {
-      const groupHeading = document.createElement('h3');
-      groupHeading.textContent = group;
-      main.appendChild(groupHeading);
-
-      const ul = document.createElement('ul');
-      data[belt][group].forEach(technique => {
-        const li = document.createElement('li');
-        li.textContent = technique;
-        ul.appendChild(li);
-      });
-
-      main.appendChild(ul);
-    }
-  }
-}
-
-searchInput.addEventListener('input', render);
-
-darkModeToggle.addEventListener('change', () => {
-  document.body.classList.toggle('dark', darkModeToggle.checked);
-});
-
-loadData();
+  if (Object.keys(data).length
