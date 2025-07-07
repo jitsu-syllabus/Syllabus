@@ -53,4 +53,62 @@ function render() {
     for (const group in groups) {
       if (catFilter !== 'All' && group !== catFilter) continue;
 
-      for (const technique of groups
+      for (const technique of groups[group]) {
+        if (!technique.toLowerCase().includes(search)) continue;
+
+        if (!filtered[belt]) filtered[belt] = {};
+        if (!filtered[belt][group]) filtered[belt][group] = [];
+        filtered[belt][group].push(technique);
+      }
+    }
+  }
+
+  displayNested(filtered);
+}
+
+function displayNested(data) {
+  main.innerHTML = '';
+
+  if (Object.keys(data).length === 0) {
+    main.innerHTML = '<p>No matches found.</p>';
+    return;
+  }
+
+  for (const belt in data) {
+    const cleanedBeltName = belt.replace(/\bKyu\b/i, '').trim();
+    const beltHeading = document.createElement('h2');
+    beltHeading.textContent = `${cleanedBeltName} Belt`;
+    main.appendChild(beltHeading);
+
+    for (const group in data[belt]) {
+      const isColorCategory = /^#?[0-9a-f]{3,6}$/i.test(group) ||
+        ['color', 'colour', 'swatch', 'shade', 'highlight', 'red', 'blue', 'green', 'yellow', 'black', 'white']
+          .includes(group.toLowerCase());
+
+      const showGroupHeading = categorySelect.value !== 'All' || Object.keys(data[belt]).length > 1;
+
+      if (showGroupHeading && !isColorCategory) {
+        const groupHeading = document.createElement('h3');
+        groupHeading.textContent = group;
+        main.appendChild(groupHeading);
+      }
+
+      const ul = document.createElement('ul');
+      data[belt][group].forEach(technique => {
+        const li = document.createElement('li');
+        li.textContent = technique;
+        ul.appendChild(li);
+      });
+
+      main.appendChild(ul);
+    }
+  }
+}
+
+searchInput.addEventListener('input', render);
+
+darkModeToggle.addEventListener('change', () => {
+  document.body.classList.toggle('dark', darkModeToggle.checked);
+});
+
+loadData();
