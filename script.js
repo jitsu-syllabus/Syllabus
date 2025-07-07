@@ -44,7 +44,6 @@ function render() {
   const catFilter = categorySelect.value;
   const search = searchInput.value.toLowerCase();
 
-  // ✅ Belt swatch fix
   if (beltFilter !== 'All' && rawData[beltFilter]?.color) {
     beltSwatch.style.background = rawData[beltFilter].color;
   } else {
@@ -57,7 +56,7 @@ function render() {
     if (beltFilter !== 'All' && belt !== beltFilter) continue;
 
     for (const group in groups) {
-      if (isColorCategory(group)) continue; // 🚫 Skip color groups entirely
+      if (isColorCategory(group)) continue;
       if (catFilter !== 'All' && group !== catFilter) continue;
 
       for (const technique of groups[group]) {
@@ -82,18 +81,25 @@ function displayNested(data) {
   }
 
   for (const belt in data) {
-    const cleanedBeltName = belt.replace(/\bKyu\b/i, '').trim();
-    const beltHeading = document.createElement('h2');
-    beltHeading.textContent = `${cleanedBeltName} Belt`;
-    main.appendChild(beltHeading);
+    const cleanedBeltName = belt.replace(/\s+\d+(st|nd|rd|th)?\s+kyu\b/i, '').trim();
+    
+    const beltDetails = document.createElement('details');
+    beltDetails.open = true;
+
+    const beltSummary = document.createElement('summary');
+    beltSummary.textContent = `${cleanedBeltName} Belt`;
+    beltDetails.appendChild(beltSummary);
 
     for (const group in data[belt]) {
+      const groupDetails = document.createElement('details');
+      groupDetails.open = true;
+
       const showGroupHeading = categorySelect.value !== 'All' || Object.keys(data[belt]).length > 1;
 
       if (showGroupHeading) {
-        const groupHeading = document.createElement('h3');
-        groupHeading.textContent = group;
-        main.appendChild(groupHeading);
+        const groupSummary = document.createElement('summary');
+        groupSummary.textContent = group;
+        groupDetails.appendChild(groupSummary);
       }
 
       const ul = document.createElement('ul');
@@ -103,8 +109,11 @@ function displayNested(data) {
         ul.appendChild(li);
       });
 
-      main.appendChild(ul);
+      groupDetails.appendChild(ul);
+      beltDetails.appendChild(groupDetails);
     }
+
+    main.appendChild(beltDetails);
   }
 }
 
