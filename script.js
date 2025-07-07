@@ -38,7 +38,7 @@ function render() {
   const catFilter = categorySelect.value;
   const search = searchInput.value.toLowerCase();
 
-  // ✅ Belt swatch only visible for specific belts with a color
+  // ✅ Belt swatch fix
   if (beltFilter !== 'All' && rawData[beltFilter]?.color) {
     beltSwatch.style.background = rawData[beltFilter].color;
   } else {
@@ -67,45 +67,3 @@ function render() {
 }
 
 function displayNested(data) {
-  main.innerHTML = '';
-
-  if (Object.keys(data).length === 0) {
-    main.innerHTML = '<p>No matches found.</p>';
-    return;
-  }
-
-  for (const belt in data) {
-    const beltHeading = document.createElement('h2');
-    beltHeading.textContent = `${belt} Belt`;
-    main.appendChild(beltHeading);
-
-    for (const group in data[belt]) {
-      const groupHeading = document.createElement('h3');
-
-// Prevent accidental color codes from appearing as text
-const cleanGroupName = group.replace(/^#?[0-9a-f]{3,6}$/i, '').trim();
-
-if (cleanGroupName) {
-  groupHeading.textContent = cleanGroupName;
-  main.appendChild(groupHeading);
-}
-
-      const ul = document.createElement('ul');
-      data[belt][group].forEach(technique => {
-        const li = document.createElement('li');
-        li.textContent = technique;
-        ul.appendChild(li);
-      });
-
-      main.appendChild(ul);
-    }
-  }
-}
-
-searchInput.addEventListener('input', render);
-
-darkModeToggle.addEventListener('change', () => {
-  document.body.classList.toggle('dark', darkModeToggle.checked);
-});
-
-loadData();
