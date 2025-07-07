@@ -53,17 +53,4 @@ function render() {
     for (const group in groups) {
       if (catFilter !== 'All' && group !== catFilter) continue;
 
-      for (const technique of groups[group]) {
-        if (!technique.toLowerCase().includes(search)) continue;
-
-        if (!filtered[belt]) filtered[belt] = {};
-        if (!filtered[belt][group]) filtered[belt][group] = [];
-        filtered[belt][group].push(technique);
-      }
-    }
-  }
-
-  displayNested(filtered);
-}
-
-function displayNested(data) {
+      for (const technique of groups
