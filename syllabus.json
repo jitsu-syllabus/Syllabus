@@ -1,6 +1,5 @@
 {
   "Yellow Belt 7th Kyu": {
-    "color": "#f7e200",
     "Ukemi Waza": [
       "Kneeling Ukemi",
       "Standing sideways (static)",
@@ -65,7 +64,6 @@
     ]
   },
   "Orange Belt 6th Kyu": {
-    "color": "#f28c28",
     "Ukemi Waza": [
       "Standing Ukemi",
       "Over-the-belt",
@@ -131,7 +129,6 @@
     ]
   },
   "Green Belt 5th Kyu": {
-    "color": "#3db945",
     "Ukemi Waza": [
       "Drop",
       "Judo roll",
@@ -196,7 +193,6 @@
     ]
   },
   "Purple Belt 4th Kyu": {
-    "color": "#800080",
     "Martial Warmup Drills": [
       "Ayumi Ashi drill (linear movement — changing feet)",
       "Tsugi Ashi drill (linear movement — sliding feet)",
@@ -247,7 +243,6 @@
     ]
   },
   "Light Blue Belt 3rd Kyu": {
-    "color": "#add8e6",
     "Ukemi Waza": [
       "Over-the-belt unsupported",
       "Handstand breakfall"
@@ -312,7 +307,6 @@
     ]
   },
   "Dark Blue Belt 2nd Kyu": {
-    "color": "#00008b",
     "Ukemi Waza": [
       "Forward roll with extended height and distance"
     ],
@@ -352,7 +346,6 @@
     ]
   },
   "Brown Belt 1st Kyu": {
-    "color": "#a52a2a",
     "Ukemi Waza": [
       "Drop from legs being pulled away",
       "Cross forward roll",
