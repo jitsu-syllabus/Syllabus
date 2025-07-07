@@ -6,6 +6,23 @@ const beltSwatch = document.getElementById('beltSwatch');
 const darkModeToggle = document.getElementById('darkMode');
 const main = document.getElementById('techniques');
 
+// 🌟 Inject Expand/Collapse Toggle Button
+const controlBar = document.createElement('div');
+controlBar.style.marginBottom = '1rem';
+const toggleBtn = document.createElement('button');
+toggleBtn.textContent = 'Collapse All';
+toggleBtn.style.padding = '0.3rem 0.6rem';
+toggleBtn.style.cursor = 'pointer';
+toggleBtn.style.marginTop = '1rem';
+toggleBtn.addEventListener('click', () => {
+  const detailsElements = document.querySelectorAll('details');
+  const expanding = toggleBtn.textContent.includes('Expand');
+  detailsElements.forEach(el => el.open = expanding);
+  toggleBtn.textContent = expanding ? 'Collapse All' : 'Expand All';
+});
+main.before(controlBar);
+controlBar.appendChild(toggleBtn);
+
 async function loadData() {
   const json = await fetch('syllabus.json').then(r => r.json());
   rawData = json;
@@ -44,6 +61,7 @@ function render() {
   const catFilter = categorySelect.value;
   const search = searchInput.value.toLowerCase();
 
+  // 🎨 Belt swatch update
   if (beltFilter !== 'All' && rawData[beltFilter]?.color) {
     beltSwatch.style.background = rawData[beltFilter].color;
   } else {
@@ -70,6 +88,12 @@ function render() {
   }
 
   displayNested(filtered);
+
+  // 🧼 Collapse all details after filter/search
+  requestAnimationFrame(() => {
+    document.querySelectorAll('details').forEach(d => d.open = false);
+    toggleBtn.textContent = 'Expand All';
+  });
 }
 
 function displayNested(data) {
@@ -82,20 +106,16 @@ function displayNested(data) {
 
   for (const belt in data) {
     const cleanedBeltName = belt.replace(/\s+\d+(st|nd|rd|th)?\s+kyu\b/i, '').trim();
-    
-    const beltDetails = document.createElement('details');
-    beltDetails.open = true;
 
+    const beltDetails = document.createElement('details');
     const beltSummary = document.createElement('summary');
     beltSummary.textContent = `${cleanedBeltName} Belt`;
     beltDetails.appendChild(beltSummary);
 
     for (const group in data[belt]) {
       const groupDetails = document.createElement('details');
-      groupDetails.open = true;
 
       const showGroupHeading = categorySelect.value !== 'All' || Object.keys(data[belt]).length > 1;
-
       if (showGroupHeading) {
         const groupSummary = document.createElement('summary');
         groupSummary.textContent = group;
