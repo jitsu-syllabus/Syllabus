@@ -7,10 +7,15 @@ const darkModeToggle = document.getElementById('darkMode');
 const main = document.getElementById('techniques');
 
 async function loadData() {
-  const json = await fetch('syllabus.json').() {
-  beltSelect.innerHTML = '<option value="All">All Belts</option>' +
-    Object.keys(rawData).map(b => `<option value="${b}">${b}</option>`).join('');
-  beltSelect.addEventListener('change', render);
+  const json = await fetch('syllabus.json').then(r => r.json());
+  rawData = json;
+
+  // Wait for DOM to be ready before populating filters
+  requestAnimationFrame(() => {
+    populateBeltFilter();
+    populateCategoryFilter();
+    render();
+  });
 }
 
 function populateCategoryFilter() {
