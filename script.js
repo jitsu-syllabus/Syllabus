@@ -33,6 +33,12 @@ function populateCategoryFilter() {
   categorySelect.innerHTML = opts.join('');
 }
 
+function isColorCategory(group) {
+  return /^#?[0-9a-f]{3,6}$/i.test(group) ||
+    ['color', 'colour', 'swatch', 'shade', 'highlight', 'red', 'blue', 'green', 'yellow', 'black', 'white']
+      .includes(group.toLowerCase());
+}
+
 function render() {
   const beltFilter = beltSelect.value;
   const catFilter = categorySelect.value;
@@ -51,12 +57,7 @@ function render() {
     if (beltFilter !== 'All' && belt !== beltFilter) continue;
 
     for (const group in groups) {
-      const isColorCategory = /^#?[0-9a-f]{3,6}$/i.test(group) ||
-        ['color', 'colour', 'swatch', 'shade', 'highlight', 'red', 'blue', 'green', 'yellow', 'black', 'white']
-          .includes(group.toLowerCase());
-
-      if (isColorCategory) continue; // 🚫 Skip color groups entirely
-
+      if (isColorCategory(group)) continue; // 🚫 Skip color groups entirely
       if (catFilter !== 'All' && group !== catFilter) continue;
 
       for (const technique of groups[group]) {
