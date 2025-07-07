@@ -1,67 +1,114 @@
-:root {
-  --bg: #f9f9f9;
-  --fg: #333;
-  --primary: #0275d8;
-  --transition: 0.3s;
-}
+/* Layout Basics */
 body {
-  margin: 0;
-  font-family: sans-serif;
-  background: var(--bg);
-  color: var(--fg);
-  transition: background var(--transition), color var(--transition);
-}
-header {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
   padding: 1rem;
-  background: var(--primary);
-  color: #fff;
+  margin: 0;
+  background-color: #fefefe;
+  color: #222;
 }
+
+header {
+  background: #333;
+  color: white;
+  padding: 1rem;
+}
+
 header h1 {
-  margin: 0 0 1rem;
+  margin: 0;
+  font-size: 1.5rem;
 }
+
 .controls {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 1rem;
+  margin-top: 1rem;
 }
+
 .filter {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
-.filter.search { flex: 1; }
-.filter.toggle { margin-left: auto; }
+
 .swatch {
   display: inline-block;
-  width: 1rem;
-  height: 1rem;
-  border: 1px solid #333;
-  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+  border-radius: 4px;
+  border: 1px solid #ccc;
 }
+
+/* Main content */
 main {
-  padding: 1rem;
+  margin-top: 2rem;
 }
-.technique {
-  border-bottom: 1px solid #ddd;
-  padding: 0.5rem 0;
+
+ul {
+  margin: 0.5rem 0 1rem 1.5rem;
+  padding: 0;
 }
-.technique h3 {
-  margin: 0;
+
+li {
+  margin: 0.2rem 0;
+}
+
+/* Belt collapsibles */
+details {
+  margin-bottom: 1rem;
+  border-left: 4px solid #ccc;
+  padding-left: 0.5rem;
+}
+
+details summary {
+  font-weight: bold;
+  font-size: 1.2rem;
   cursor: pointer;
+  margin: 0.5rem 0;
 }
-.technique ul {
-  margin: 0.5rem 0 0 1rem;
-  display: none;
+
+details summary::marker {
+  font-size: 1rem;
 }
-.technique.expanded ul {
-  display: block;
+
+/* Category (group) collapsibles */
+details > details {
+  margin-left: 1.2rem;
+  border-left: 3px solid #ddd;
+  padding-left: 0.5rem;
+}
+
+details > details summary {
+  font-weight: normal;
+  font-size: 1rem;
+  color: #444;
+}
+
+/* Search input */
+#searchInput {
+  padding: 0.3rem 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 /* Dark Mode */
 body.dark {
-  --bg: #222;
-  --fg: #eee;
-  --primary: #444;
+  background-color: #121212;
+  color: #ddd;
 }
 
+body.dark header {
+  background: #1e1e1e;
+}
 
+body.dark .swatch {
+  border-color: #444;
+}
+
+body.dark input,
+body.dark select {
+  background-color: #333;
+  color: #eee;
+  border-color: #555;
+}
