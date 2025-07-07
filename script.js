@@ -51,6 +51,12 @@ function render() {
     if (beltFilter !== 'All' && belt !== beltFilter) continue;
 
     for (const group in groups) {
+      const isColorCategory = /^#?[0-9a-f]{3,6}$/i.test(group) ||
+        ['color', 'colour', 'swatch', 'shade', 'highlight', 'red', 'blue', 'green', 'yellow', 'black', 'white']
+          .includes(group.toLowerCase());
+
+      if (isColorCategory) continue; // 🚫 Skip color groups entirely
+
       if (catFilter !== 'All' && group !== catFilter) continue;
 
       for (const technique of groups[group]) {
@@ -81,13 +87,9 @@ function displayNested(data) {
     main.appendChild(beltHeading);
 
     for (const group in data[belt]) {
-      const isColorCategory = /^#?[0-9a-f]{3,6}$/i.test(group) ||
-        ['color', 'colour', 'swatch', 'shade', 'highlight', 'red', 'blue', 'green', 'yellow', 'black', 'white']
-          .includes(group.toLowerCase());
-
       const showGroupHeading = categorySelect.value !== 'All' || Object.keys(data[belt]).length > 1;
 
-      if (showGroupHeading && !isColorCategory) {
+      if (showGroupHeading) {
         const groupHeading = document.createElement('h3');
         groupHeading.textContent = group;
         main.appendChild(groupHeading);
