@@ -1,4 +1,4 @@
-let data = [];
+let rawData = [];
 const beltSelect = document.getElementById('beltSelect');
 const categorySelect = document.getElementById('categorySelect');
 const searchInput = document.getElementById('searchInput');
@@ -7,21 +7,15 @@ const darkModeToggle = document.getElementById('darkMode');
 const main = document.getElementById('techniques');
 
 async function loadData() {
-  data = await fetch('syllabus.json').then(r => r.json());
-  populateBeltFilter();
-  populateCategoryFilter();
-  render();
-}
-
-function populateBeltFilter() {
+  const json = await fetch('syllabus.json').() {
   beltSelect.innerHTML = '<option value="All">All Belts</option>' +
-    Object.keys(data).map(b => `<option value="${b}">${b}</option>`).join('');
+    Object.keys(rawData).map(b => `<option value="${b}">${b}</option>`).join('');
   beltSelect.addEventListener('change', render);
 }
 
 function populateCategoryFilter() {
   const cats = new Set();
-  Object.values(data).forEach(belt => {
+  Object.values(rawData).forEach(belt => {
     Object.keys(belt).forEach(cat => cats.add(cat));
   });
   const opts = ['All', ...[...cats].sort()].map(c => `<option value="${c}">${c}</option>`);
@@ -30,29 +24,56 @@ function populateCategoryFilter() {
 }
 
 function render() {
-  const belt = beltSelect.value;
-  const category = categorySelect.value;
+  const beltFilter = beltSelect.value;
+  const catFilter = categorySelect.value;
   const search = searchInput.value.toLowerCase();
-  beltSwatch.style.background = belt !== 'All' && data[belt]?.color || 'transparent';
+  beltSwatch.style.background = beltFilter !== 'All' && rawData[beltFilter]?.color || 'transparent';
 
-  let items = [];
-  Object.entries(data).forEach(([beltName, beltObj]) => {
-    if (belt !== 'All' && beltName !== belt) return;
-    Object.entries(beltObj).forEach(([cat, techniques]) => {
-      if (category !== 'All' && cat !== category) return;
-      techniques.forEach(name => {
-        if (name.toLowerCase().includes(search))
-          items.push({ belt: beltName, cat, name });
-      });
-    });
+  const filtered = {};
+
+  Object.entries(rawData).forEach(([belt, groups]) => {
+    if (beltFilter !== 'All' && belt !== beltFilter) return;
+    for (const group in groups) {
+      if (catFilter !== 'All' && group !== catFilter) continue;
+      for (const technique of groups[group]) {
+        if (!technique.toLowerCase().includes(search)) continue;
+        if (!filtered[belt]) filtered[belt] = {};
+        if (!filtered[belt][group]) filtered[belt][group] = [];
+        filtered[belt][group].push(technique);
+      }
+    }
   });
 
-  main.innerHTML = items.length
-    ? items.map(i => `
-      <div class="technique">
-        <h3>${i.name} <small>(${i.belt} • ${i.cat})</small></h3>
-      </div>`).join('')
-    : '<p>No matches found.</p>';
+  displayNested(filtered);
+}
+
+function displayNested(data) {
+  main.innerHTML = '';
+
+  if (Object.keys(data).length === 0) {
+    main.innerHTML = '<p>No matches found.</p>';
+    return;
+  }
+
+  for (const belt in data) {
+    const beltHeading = document.createElement('h2');
+    beltHeading.textContent = `${belt} Belt`;
+    main.appendChild(beltHeading);
+
+    for (const group in data[belt]) {
+      const groupHeading = document.createElement('h3');
+      groupHeading.textContent = group;
+      main.appendChild(groupHeading);
+
+      const ul = document.createElement('ul');
+      data[belt][group].forEach(t => {
+        const li = document.createElement('li');
+        li.textContent = t;
+        ul.appendChild(li);
+      });
+      main.appendChild(ul);
+    }
+  }
 }
 
 searchInput.addEventListener('input', render);
