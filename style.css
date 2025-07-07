@@ -1,15 +1,16 @@
-/* Layout Basics */
+/* General Layout */
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  padding: 1rem;
   margin: 0;
+  padding: 1rem;
   background-color: #fefefe;
   color: #222;
 }
 
+/* Header Styling */
 header {
-  background: #333;
+  background: #8B0000; /* Dark red header */
   color: white;
   padding: 1rem;
 }
@@ -19,11 +20,15 @@ header h1 {
   font-size: 1.5rem;
 }
 
+/* Filter Controls */
 .controls {
+  background: #600000; /* Slightly darker red for contrast */
+  padding: 1rem;
+  border-radius: 6px;
+  margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-top: 1rem;
 }
 
 .filter {
@@ -40,11 +45,22 @@ header h1 {
   border: 1px solid #ccc;
 }
 
-/* Main content */
+/* Dropdowns and Input */
+select,
+input[type="text"] {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+}
+
+/* Main Content */
 main {
   margin-top: 2rem;
 }
 
+/* Lists */
 ul {
   margin: 0.5rem 0 1rem 1.5rem;
   padding: 0;
@@ -54,11 +70,11 @@ li {
   margin: 0.2rem 0;
 }
 
-/* Belt collapsibles */
+/* Belt Collapsible Sections */
 details {
   margin-bottom: 1rem;
-  border-left: 4px solid #ccc;
-  padding-left: 0.5rem;
+  border-left: 4px solid #8B0000; /* Match header */
+  padding-left: 0.75rem;
 }
 
 details summary {
@@ -66,17 +82,29 @@ details summary {
   font-size: 1.2rem;
   cursor: pointer;
   margin: 0.5rem 0;
+  list-style: none;
+  position: relative;
+  color: #222;
 }
 
-details summary::marker {
-  font-size: 1rem;
+/* Belt Arrow */
+details summary::before {
+  content: '▶';
+  color: #8B0000; /* Match header */
+  margin-right: 0.5rem;
+  transition: transform 0.2s ease;
+  display: inline-block;
 }
 
-/* Category (group) collapsibles */
+details[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+/* Category Subsections */
 details > details {
-  margin-left: 1.2rem;
-  border-left: 3px solid #ddd;
-  padding-left: 0.5rem;
+  margin-left: 1.5rem;
+  border-left: 3px solid black; /* Black category line */
+  padding-left: 0.75rem;
 }
 
 details > details summary {
@@ -85,25 +113,53 @@ details > details summary {
   color: #444;
 }
 
-/* Search input */
+/* Category Arrow */
+details > details summary::before {
+  content: '▶';
+  color: black;
+  margin-right: 0.5rem;
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+details > details[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+/* Expand/Collapse Button */
+button {
+  background: #8B0000;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #a60000;
+}
+
+/* Search Input */
 #searchInput {
   padding: 0.3rem 0.6rem;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-/* Dark Mode */
+/* Dark Mode Styles */
 body.dark {
   background-color: #121212;
   color: #ddd;
 }
 
 body.dark header {
-  background: #1e1e1e;
+  background: #330000;
 }
 
-body.dark .swatch {
-  border-color: #444;
+body.dark .controls {
+  background-color: #220000;
 }
 
 body.dark input,
@@ -111,4 +167,8 @@ body.dark select {
   background-color: #333;
   color: #eee;
   border-color: #555;
+}
+
+body.dark .swatch {
+  border-color: #444;
 }
