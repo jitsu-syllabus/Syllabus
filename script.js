@@ -3,10 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const beltSelect = document.getElementById('beltSelect');
   const categorySelect = document.getElementById('categorySelect');
   const searchInput = document.getElementById('searchInput');
-  const beltSwatch = document.getElementById('beltSwatch');
   const main = document.getElementById('techniques');
 
-  // 🌟 Inject Expand/Collapse Toggle Button
+  // 🌟 Expand/Collapse Toggle
   const controlBar = document.createElement('div');
   controlBar.style.marginBottom = '1rem';
   const toggleBtn = document.createElement('button');
@@ -61,13 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const catFilter = categorySelect.value;
     const search = searchInput.value.toLowerCase();
 
-    // 🎨 Belt swatch update
-    if (beltFilter !== 'All' && rawData[beltFilter]?.color) {
-      beltSwatch.style.background = rawData[beltFilter].color;
-    } else {
-      beltSwatch.style.background = 'transparent';
-    }
-
     const filtered = {};
 
     for (const [belt, groups] of Object.entries(rawData)) {
@@ -89,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     displayNested(filtered);
 
-    // 🧼 Collapse all details after filter/search
     requestAnimationFrame(() => {
       document.querySelectorAll('details').forEach(d => d.open = false);
       toggleBtn.textContent = 'Expand All';
