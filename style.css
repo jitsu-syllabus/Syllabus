@@ -62,14 +62,7 @@ button#clearFilters:hover {
   background-color: #ced4da;
 }
 
-/* Main content */
-main {
-  padding: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-/* Expand/collapse toggle */
+/* Expand/Collapse toggle */
 button {
   background-color: #e2e6ea;
   border: none;
@@ -78,6 +71,13 @@ button {
 
 button:hover {
   background-color: #d6d8db;
+}
+
+/* Main content */
+main {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* Technique sections */
