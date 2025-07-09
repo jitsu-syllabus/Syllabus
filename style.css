@@ -24,6 +24,7 @@ h1 {
   gap: 1rem;
   justify-content: center;
   align-items: flex-end;
+  margin-bottom: 1.5rem;
 }
 
 .filter {
@@ -57,16 +58,41 @@ button#clearFilters:hover {
   background-color: #ced4da;
 }
 
+button {
+  background-color: #e2e6ea;
+  border: none;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #d6d8db;
+}
+
 main {
   padding: 2rem;
   max-width: 800px;
   margin: 0 auto;
 }
 
+/* Belt-level details */
 details summary {
   font-weight: bold;
   cursor: pointer;
   margin: 0.8rem 0 0.4rem;
+}
+
+/* Category-level inside belt */
+details details {
+  margin-left: 1rem;
+}
+
+details details > ul {
+  margin-left: 1.2rem;
+}
+
+/* Category-only stepped result */
+.stepped {
+  margin-left: 1rem;
 }
 
 ul {
