@@ -1,174 +1,79 @@
-/* General Layout */
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 1rem;
-  background-color: #fefefe;
-  color: #222;
+  background-color: #f8f9fa;
+  color: #212529;
 }
 
-/* Header Styling */
 header {
-  background: #8B0000; /* Dark red header */
-  color: white;
-  padding: 1rem;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dee2e6;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 1.5rem;
+h1 {
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  color: #343a40;
 }
 
-/* Filter Controls */
 .controls {
-  background: #600000; /* Slightly darker red for contrast */
-  padding: 1rem;
-  border-radius: 6px;
-  margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .filter {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  flex-direction: column;
+  font-size: 0.9rem;
 }
 
-.swatch {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  border-radius: 4px;
-  border: 1px solid #ccc;
+.filter label {
+  margin-bottom: 0.3rem;
+  font-weight: bold;
 }
 
-/* Dropdowns and Input */
+input[type="text"],
 select,
-input[type="text"] {
-  background-color: #fff;
-  color: #000;
+button {
+  font-size: 1rem;
+  padding: 0.4rem;
   border: 1px solid #ccc;
-  padding: 0.3rem 0.5rem;
   border-radius: 4px;
 }
 
-/* Main Content */
+button#clearFilters {
+  background-color: #dee2e6;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button#clearFilters:hover {
+  background-color: #ced4da;
+}
+
 main {
-  margin-top: 2rem;
-}
-
-/* Lists */
-ul {
-  margin: 0.5rem 0 1rem 1.5rem;
-  padding: 0;
-}
-
-li {
-  margin: 0.2rem 0;
-}
-
-/* Belt Collapsible Sections */
-details {
-  margin-bottom: 1rem;
-  border-left: 4px solid #8B0000; /* Match header */
-  padding-left: 0.75rem;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 details summary {
   font-weight: bold;
-  font-size: 1.2rem;
   cursor: pointer;
-  margin: 0.5rem 0;
-  list-style: none;
-  position: relative;
-  color: #222;
+  margin: 0.8rem 0 0.4rem;
 }
 
-/* Belt Arrow */
-details summary::before {
-  content: '▶';
-  color: #8B0000; /* Match header */
-  margin-right: 0.5rem;
-  transition: transform 0.2s ease;
-  display: inline-block;
+ul {
+  padding-left: 1.2rem;
+  margin: 0.4rem 0 1rem;
 }
 
-details[open] > summary::before {
-  transform: rotate(90deg);
-}
-
-/* Category Subsections */
-details > details {
-  margin-left: 1.5rem;
-  border-left: 3px solid black; /* Black category line */
-  padding-left: 0.75rem;
-}
-
-details > details summary {
-  font-weight: normal;
-  font-size: 1rem;
-  color: #444;
-}
-
-/* Category Arrow */
-details > details summary::before {
-  content: '▶';
-  color: black;
-  margin-right: 0.5rem;
-  transition: transform 0.2s ease;
-  display: inline-block;
-}
-
-details > details[open] > summary::before {
-  transform: rotate(90deg);
-}
-
-/* Expand/Collapse Button */
-button {
-  background: #8B0000;
-  color: white;
-  border: none;
-  padding: 0.4rem 0.8rem;
-  border-radius: 4px;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #a60000;
-}
-
-/* Search Input */
-#searchInput {
-  padding: 0.3rem 0.6rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-/* Dark Mode Styles */
-body.dark {
-  background-color: #121212;
-  color: #ddd;
-}
-
-body.dark header {
-  background: #330000;
-}
-
-body.dark .controls {
-  background-color: #220000;
-}
-
-body.dark input,
-body.dark select {
-  background-color: #333;
-  color: #eee;
-  border-color: #555;
-}
-
-body.dark .swatch {
-  border-color: #444;
+li {
+  margin: 0.2rem 0;
 }
