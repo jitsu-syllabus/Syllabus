@@ -120,35 +120,29 @@ document.addEventListener('DOMContentLoaded', () => {
       beltDetails.appendChild(beltSummary);
 
       for (const group in data[belt]) {
-        // 🧽 When only category is selected, skip the extra <details>
-        if (onlyCategorySelected) {
-          const ul = document.createElement('ul');
-          data[belt][group].forEach(technique => {
-            const li = document.createElement('li');
-            li.textContent = technique;
-            ul.appendChild(li);
-          });
+        const ul = document.createElement('ul');
+        data[belt][group].forEach(technique => {
+          const li = document.createElement('li');
+          li.textContent = technique;
+          ul.appendChild(li);
+        });
+
+        const showGroupHeading =
+          isSearching ||
+          (catFilter === 'All' && !onlyCategorySelected && !isSearching) ||
+          Object.keys(data[belt]).length > 1;
+
+        if (onlyCategorySelected && !isSearching) {
           beltDetails.appendChild(ul);
         } else {
           const groupDetails = document.createElement('details');
           if (onlyBeltSelected || bothSelected || isSearching) groupDetails.open = true;
-
-          const showGroupHeading =
-            (catFilter === 'All' && !onlyCategorySelected && !isSearching) ||
-            Object.keys(data[belt]).length > 1;
 
           if (showGroupHeading) {
             const groupSummary = document.createElement('summary');
             groupSummary.textContent = group;
             groupDetails.appendChild(groupSummary);
           }
-
-          const ul = document.createElement('ul');
-          data[belt][group].forEach(technique => {
-            const li = document.createElement('li');
-            li.textContent = technique;
-            ul.appendChild(li);
-          });
 
           groupDetails.appendChild(ul);
           beltDetails.appendChild(groupDetails);
