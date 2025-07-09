@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const clearBtn = document.getElementById('clearFilters');
   const main = document.getElementById('techniques');
 
-  // 🌟 Expand/Collapse Toggle
+  // Expand/Collapse toggle
   const controlBar = document.createElement('div');
   controlBar.style.marginBottom = '1rem';
   const toggleBtn = document.createElement('button');
@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
     categorySelect.value = 'All';
     searchInput.value = '';
     render();
-
     requestAnimationFrame(() => {
       document.querySelectorAll('details').forEach(d => d.open = false);
       toggleBtn.textContent = 'Expand All';
@@ -38,14 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
   async function loadData() {
     const json = await fetch('syllabus.json').then(r => r.json());
     rawData = json;
-
     populateBeltFilter();
     populateCategoryFilter();
-
     beltSelect.addEventListener('change', render);
     categorySelect.addEventListener('change', render);
     searchInput.addEventListener('input', render);
-
     render();
   }
 
@@ -74,19 +70,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const beltFilter = beltSelect.value;
     const catFilter = categorySelect.value;
     const search = searchInput.value.toLowerCase();
-
     const filtered = {};
 
     for (const [belt, groups] of Object.entries(rawData)) {
       if (beltFilter !== 'All' && belt !== beltFilter) continue;
-
       for (const group in groups) {
         if (isColorCategory(group)) continue;
         if (catFilter !== 'All' && group !== catFilter) continue;
-
         for (const technique of groups[group]) {
           if (!technique.toLowerCase().includes(search)) continue;
-
           if (!filtered[belt]) filtered[belt] = {};
           if (!filtered[belt][group]) filtered[belt][group] = [];
           filtered[belt][group].push(technique);
@@ -99,7 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function displayNested(data, { beltFilter, catFilter, isSearching }) {
     main.innerHTML = '';
-
     if (Object.keys(data).length === 0) {
       main.innerHTML = '<p>No matches found.</p>';
       return;
@@ -111,17 +102,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     for (const belt in data) {
       const cleanedBeltName = belt.replace(/\s+\d+(st|nd|rd|th)?\s+kyu\b/i, '').trim();
-
       const beltDetails = document.createElement('details');
       if (onlyBeltSelected || onlyCategorySelected || bothSelected || isSearching) beltDetails.open = true;
-
       const beltSummary = document.createElement('summary');
       beltSummary.textContent = `${cleanedBeltName} Belt`;
       beltDetails.appendChild(beltSummary);
 
       for (const group in data[belt]) {
+        const techniques = data[belt][group];
         const ul = document.createElement('ul');
-        data[belt][group].forEach(technique => {
+        techniques.forEach(technique => {
           const li = document.createElement('li');
           li.textContent = technique;
           ul.appendChild(li);
@@ -133,17 +123,18 @@ document.addEventListener('DOMContentLoaded', () => {
           Object.keys(data[belt]).length > 1;
 
         if (onlyCategorySelected && !isSearching) {
-          beltDetails.appendChild(ul);
+          const wrapper = document.createElement('div');
+          wrapper.className = 'stepped';
+          wrapper.appendChild(ul);
+          beltDetails.appendChild(wrapper);
         } else {
           const groupDetails = document.createElement('details');
           if (onlyBeltSelected || bothSelected || isSearching) groupDetails.open = true;
-
           if (showGroupHeading) {
             const groupSummary = document.createElement('summary');
             groupSummary.textContent = group;
             groupDetails.appendChild(groupSummary);
           }
-
           groupDetails.appendChild(ul);
           beltDetails.appendChild(groupDetails);
         }
