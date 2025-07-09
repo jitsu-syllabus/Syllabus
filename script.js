@@ -23,6 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
   main.before(controlBar);
   controlBar.appendChild(toggleBtn);
 
+  clearBtn.addEventListener('click', () => {
+    beltSelect.value = 'All';
+    categorySelect.value = 'All';
+    searchInput.value = '';
+    render();
+  });
+
   async function loadData() {
     const json = await fetch('syllabus.json').then(r => r.json());
     rawData = json;
@@ -33,12 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
     beltSelect.addEventListener('change', render);
     categorySelect.addEventListener('change', render);
     searchInput.addEventListener('input', render);
-    clearBtn.addEventListener('click', () => {
-      beltSelect.value = 'All';
-      categorySelect.value = 'All';
-      searchInput.value = '';
-      render();
-    });
 
     render();
   }
