@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const beltDetails = document.createElement('details');
       if (onlyBeltSelected || onlyCategorySelected || bothSelected || isSearching) beltDetails.open = true;
       const beltSummary = document.createElement('summary');
-      beltSummary.textContent = `${cleanedBeltName};
+      beltSummary.textContent = `${cleanedBeltName} belt;
       beltDetails.appendChild(beltSummary);
 
       for (const group in data[belt]) {
