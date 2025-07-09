@@ -1,105 +1,102 @@
+/* Global Styles */
 body {
-  margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f8f9fa;
-  color: #212529;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  color: #222;
 }
 
-header {
-  padding: 1.5rem;
-  background-color: #ffffff;
-  border-bottom: 1px solid #dee2e6;
+h1, h2, h3 {
+  margin: 1em 0 0.5em;
+  color: #333;
 }
 
-h1 {
-  margin-top: 0;
-  margin-bottom: 1.2rem;
-  text-align: center;
-  color: #343a40;
-}
-
-.controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  align-items: flex-end;
-  margin-bottom: 1.5rem;
-}
-
-.filter {
-  display: flex;
-  flex-direction: column;
-  font-size: 0.9rem;
-}
-
-.filter label {
-  margin-bottom: 0.3rem;
-  font-weight: bold;
-}
-
-input[type="text"],
-select,
 button {
-  font-size: 1rem;
-  padding: 0.4rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-button#clearFilters {
-  background-color: #dee2e6;
+  background-color: #0078D4;
+  color: #fff;
   border: none;
+  padding: 0.6em 1em;
+  margin-top: 1em;
   cursor: pointer;
-  transition: background 0.2s;
-}
-
-button#clearFilters:hover {
-  background-color: #ced4da;
-}
-
-button {
-  background-color: #e2e6ea;
-  border: none;
-  border-radius: 4px;
+  border-radius: 5px;
+  font-size: 1em;
 }
 
 button:hover {
-  background-color: #d6d8db;
+  background-color: #005fa3;
 }
 
-main {
-  padding: 2rem;
+/* Session Planner Styles */
+#session-planner {
+  border: 2px solid #eee;
+  padding: 1.5em;
+  margin: 2em auto;
   max-width: 800px;
-  margin: 0 auto;
+  background-color: #f4f4f4;
+  border-radius: 8px;
 }
 
-/* Belt-level details */
-details summary {
-  font-weight: bold;
-  cursor: pointer;
-  margin: 0.8rem 0 0.4rem;
+#session-planner h2 {
+  margin-top: 0;
+  color: #0078D4;
 }
 
-/* Category-level inside belt */
-details details {
-  margin-left: 1rem;
+#session-planner h3 {
+  margin: 1em 0 0.5em;
 }
 
-details details > ul {
-  margin-left: 1.2rem;
+#session-planner label {
+  display: inline-block;
+  margin-right: 1em;
+  margin-bottom: 0.5em;
 }
 
-/* Category-only stepped result */
-.stepped {
-  margin-left: 1rem;
+#generate-lesson {
+  display: block;
+  margin-top: 1.5em;
 }
 
-ul {
-  padding-left: 1.2rem;
-  margin: 0.4rem 0 1rem;
+/* Lesson Plan Page */
+#lesson-plan {
+  max-width: 900px;
+  margin: 2em auto;
+  padding: 1em 2em;
+  background-color: #fafafa;
+  border-left: 4px solid #0078D4;
 }
 
-li {
-  margin: 0.2rem 0;
+#output {
+  margin-top: 2em;
+}
+
+.lesson-item {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.lesson-item strong {
+  font-size: 1.2em;
+  color: #0078D4;
+}
+
+.lesson-item em {
+  color: #666;
+  font-style: italic;
+}
+
+/* Close Button */
+button[onclick="history.back()"] {
+  float: right;
+  margin-top: 0;
+  background-color: #bbb;
+}
+
+button[onclick="history.back()"]:hover {
+  background-color: #999;
 }
