@@ -1,3 +1,4 @@
+/* Base layout */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -5,6 +6,7 @@ body {
   color: #212529;
 }
 
+/* Header styling */
 header {
   padding: 1.5rem;
   background-color: #ffffff;
@@ -18,12 +20,14 @@ h1 {
   color: #343a40;
 }
 
+/* Filter controls */
 .controls {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
   align-items: flex-end;
+  margin-bottom: 1.5rem;
 }
 
 .filter {
@@ -46,6 +50,7 @@ button {
   border-radius: 4px;
 }
 
+/* Clear button */
 button#clearFilters {
   background-color: #dee2e6;
   border: none;
@@ -57,12 +62,25 @@ button#clearFilters:hover {
   background-color: #ced4da;
 }
 
+/* Main content */
 main {
   padding: 2rem;
   max-width: 800px;
   margin: 0 auto;
 }
 
+/* Expand/collapse toggle */
+button {
+  background-color: #e2e6ea;
+  border: none;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #d6d8db;
+}
+
+/* Technique sections */
 details summary {
   font-weight: bold;
   cursor: pointer;
