@@ -3,7 +3,6 @@ const beltSelect = document.getElementById('beltSelect');
 const categorySelect = document.getElementById('categorySelect');
 const searchInput = document.getElementById('searchInput');
 const beltSwatch = document.getElementById('beltSwatch');
-const darkModeToggle = document.getElementById('darkMode');
 const main = document.getElementById('techniques');
 
 // 🌟 Inject Expand/Collapse Toggle Button
@@ -139,8 +138,5 @@ function displayNested(data) {
 
 searchInput.addEventListener('input', render);
 
-darkModeToggle.addEventListener('change', () => {
-  document.body.classList.toggle('dark', darkModeToggle.checked);
-});
 
 loadData();
