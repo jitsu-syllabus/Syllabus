@@ -28,6 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
     categorySelect.value = 'All';
     searchInput.value = '';
     render();
+
+    // 🔽 Collapse everything after clearing
+    requestAnimationFrame(() => {
+      document.querySelectorAll('details').forEach(d => d.open = false);
+      toggleBtn.textContent = 'Expand All';
+    });
   });
 
   async function loadData() {
@@ -89,15 +95,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    displayNested(filtered);
-
-    requestAnimationFrame(() => {
-      document.querySelectorAll('details').forEach(d => d.open = false);
-      toggleBtn.textContent = 'Expand All';
-    });
+    displayNested(filtered, { beltFilter, catFilter, isSearching: !!search });
   }
 
-  function displayNested(data) {
+  function displayNested(data, { beltFilter, catFilter, isSearching }) {
     main.innerHTML = '';
 
     if (Object.keys(data).length === 0) {
@@ -105,18 +106,28 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    const onlyBeltSelected = beltFilter !== 'All' && catFilter === 'All' && !isSearching;
+    const onlyCategorySelected = beltFilter === 'All' && catFilter !== 'All' && !isSearching;
+    const bothSelected = beltFilter !== 'All' && catFilter !== 'All' && !isSearching;
+
     for (const belt in data) {
       const cleanedBeltName = belt.replace(/\s+\d+(st|nd|rd|th)?\s+kyu\b/i, '').trim();
 
       const beltDetails = document.createElement('details');
+      if (onlyBeltSelected || onlyCategorySelected || bothSelected || isSearching) beltDetails.open = true;
+
       const beltSummary = document.createElement('summary');
       beltSummary.textContent = `${cleanedBeltName} Belt`;
       beltDetails.appendChild(beltSummary);
 
       for (const group in data[belt]) {
         const groupDetails = document.createElement('details');
+        if (onlyBeltSelected || onlyCategorySelected || bothSelected || isSearching) groupDetails.open = true;
 
-        const showGroupHeading = categorySelect.value !== 'All' || Object.keys(data[belt]).length > 1;
+        const showGroupHeading =
+          (catFilter === 'All' && !onlyCategorySelected && !isSearching) ||
+          Object.keys(data[belt]).length > 1;
+
         if (showGroupHeading) {
           const groupSummary = document.createElement('summary');
           groupSummary.textContent = group;
@@ -136,6 +147,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       main.appendChild(beltDetails);
     }
+
+    toggleBtn.textContent = 'Collapse All';
   }
 
   loadData();
