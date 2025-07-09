@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const beltSelect = document.getElementById('beltSelect');
   const categorySelect = document.getElementById('categorySelect');
   const searchInput = document.getElementById('searchInput');
+  const clearBtn = document.getElementById('clearFilters');
   const main = document.getElementById('techniques');
 
   // 🌟 Expand/Collapse Toggle
@@ -31,6 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     beltSelect.addEventListener('change', render);
     categorySelect.addEventListener('change', render);
+    searchInput.addEventListener('input', render);
+    clearBtn.addEventListener('click', () => {
+      beltSelect.value = 'All';
+      categorySelect.value = 'All';
+      searchInput.value = '';
+      render();
+    });
+
     render();
   }
 
@@ -127,8 +136,6 @@ document.addEventListener('DOMContentLoaded', () => {
       main.appendChild(beltDetails);
     }
   }
-
-  searchInput.addEventListener('input', render);
 
   loadData();
 });
