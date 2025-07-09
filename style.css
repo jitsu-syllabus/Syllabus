@@ -62,7 +62,7 @@ button#clearFilters:hover {
   background-color: #ced4da;
 }
 
-/* Expand/Collapse toggle */
+/* Expand/Collapse and general buttons */
 button {
   background-color: #e2e6ea;
   border: none;
@@ -80,13 +80,24 @@ main {
   margin: 0 auto;
 }
 
-/* Technique sections */
+/* Belt level details */
 details summary {
   font-weight: bold;
   cursor: pointer;
   margin: 0.8rem 0 0.4rem;
 }
 
+/* Step category level inside belt */
+details details {
+  margin-left: 1rem;
+}
+
+/* Match inner <ul> to summary */
+details details > ul {
+  margin-left: 1.2rem;
+}
+
+/* List formatting */
 ul {
   padding-left: 1.2rem;
   margin: 0.4rem 0 1rem;
