@@ -92,7 +92,7 @@ details summary {
 }
 
 /* Mobile tweaks */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
   h1 {
     font-size: 4rem;
   }
