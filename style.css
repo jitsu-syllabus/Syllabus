@@ -1,4 +1,4 @@
-/* General page styling */
+/* 🌐 General page styling */
 body {
   font-family: Arial, sans-serif;
   margin: 20px;
@@ -19,7 +19,7 @@ h1 {
   border-radius: 5px;
 }
 
-/* Form controls */
+/* 🧩 Form controls */
 label {
   display: block;
   margin-top: 10px;
@@ -29,17 +29,21 @@ label {
 
 select[multiple],
 input[type="text"] {
-  width: 100%;
-  padding: 8px;
   font-size: 1rem;
+  padding: 8px;
   margin-top: 6px;
   margin-bottom: 10px;
   box-sizing: border-box;
 }
 
 select[multiple] {
+  width: 280px;          /* 📏 Narrower width for clearer selection */
   height: 140px;
   overflow-y: auto;
+}
+
+input[type="text"] {
+  width: 280px;
 }
 
 button {
@@ -52,7 +56,7 @@ button {
   border-radius: 4px;
 }
 
-/* Display headings and list items */
+/* 🗂️ Technique display */
 .category-heading {
   font-size: 1.2em;
   font-weight: bold;
@@ -70,7 +74,7 @@ details summary {
   cursor: pointer;
 }
 
-/* Responsive enhancements for mobile */
+/* 📱 Responsive enhancements for mobile */
 @media screen and (max-width: 600px) {
   h1 {
     font-size: 1.5rem;
@@ -82,13 +86,14 @@ details summary {
 
   select[multiple],
   input[type="text"] {
+    width: 100%;
     font-size: 1.15rem;
     padding: 10px;
   }
 
   select[multiple] option:checked {
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.25rem;    /* 👁️ Boost visibility for selected items */
   }
 
   button {
