@@ -21,32 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const activeBelts = new Set();
   const activeCategories = new Set();
 
-  const controlBar = document.createElement('div');
-  controlBar.style.marginBottom = '1rem';
-  const toggleBtn = document.createElement('button');
-  toggleBtn.textContent = 'Collapse All';
-  toggleBtn.style.padding = '0.3rem 0.6rem';
-  toggleBtn.style.cursor = 'pointer';
-  toggleBtn.style.marginTop = '1rem';
-  toggleBtn.addEventListener('click', () => {
-    const detailsElements = document.querySelectorAll('details');
-    const expanding = toggleBtn.textContent.includes('Expand');
-    detailsElements.forEach(el => el.open = expanding);
-    toggleBtn.textContent = expanding ? 'Collapse All' : 'Expand All';
-  });
-  main.before(controlBar);
-  controlBar.appendChild(toggleBtn);
-
   clearBtn.addEventListener('click', () => {
     activeBelts.clear();
     activeCategories.clear();
     searchInput.value = '';
     document.querySelectorAll('.button-group button').forEach(btn => btn.classList.remove('active'));
     render();
-    requestAnimationFrame(() => {
-      document.querySelectorAll('details').forEach(d => d.open = false);
-      toggleBtn.textContent = 'Expand All';
-    });
   });
 
   async function loadData() {
@@ -141,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const ul = document.createElement('ul');
       data[group].forEach(({ belt, technique }) => {
         const li = document.createElement('li');
-        li.textContent = `${technique} (${belt})`;
+        li.innerHTML = `<strong>${belt}</strong>: ${technique}`;
         ul.appendChild(li);
       });
 
