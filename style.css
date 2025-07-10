@@ -6,7 +6,7 @@ body {
 }
 
 h1 {
-  font-size: 2.2rem; /* Increased from 1.8rem */
+  font-size: 2.2rem;
   margin-bottom: 1rem;
 }
 
@@ -20,14 +20,14 @@ h1 {
 
 h2 {
   margin-top: 1rem;
-  font-size: 1.5rem; /* Increased from 1.2rem */
+  font-size: 1.5rem;
 }
 
 label {
   display: block;
   margin-top: 12px;
   font-weight: bold;
-  font-size: 1.2rem; /* Increased from 1rem */
+  font-size: 1.2rem;
 }
 
 .button-group {
@@ -42,7 +42,7 @@ label {
 
 .button-group button {
   padding: 8px 14px;
-  font-size: 1.1rem; /* Increased from 0.95rem */
+  font-size: 1.1rem;
   border: 1px solid #aaa;
   background-color: #eee;
   border-radius: 4px;
@@ -58,7 +58,7 @@ label {
 input[type="text"] {
   width: 100%;
   padding: 10px;
-  font-size: 1.1rem; /* Increased from 1rem */
+  font-size: 1.1rem;
   margin-top: 6px;
   margin-bottom: 10px;
   box-sizing: border-box;
@@ -66,7 +66,7 @@ input[type="text"] {
 
 button#clearFilters {
   padding: 8px 14px;
-  font-size: 1.1rem; /* Increased from 1em */
+  font-size: 1.1rem;
   cursor: pointer;
   margin-top: 8px;
   background-color: #e8e8e8;
@@ -86,27 +86,22 @@ button#clearFilters {
   padding: 0.3em 0;
 }
 
-details summary {
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/* Mobile tweaks */
+/* Responsive: Mobile and Small Tablets */
 @media screen and (max-width: 900px) {
   h1 {
-    font-size: 4rem;
+    font-size: 2rem;
   }
 
   h2 {
-    font-size: 3rem;
+    font-size: 1.4rem;
   }
 
   label {
-    font-size: 5rem;
+    font-size: 1.3rem;
   }
 
   input[type="text"] {
-    font-size: 2.5rem;
+    font-size: 1.2rem;
     padding: 12px;
   }
 
@@ -116,13 +111,13 @@ details summary {
   }
 
   .button-group button {
-    font-size: 5rem;
+    font-size: 1.2rem;
     min-width: 80px;
     flex-grow: 1;
     white-space: nowrap;
   }
 
   .category-heading {
-    font-size: 2.5em;
+    font-size: 1.4em;
   }
 }
