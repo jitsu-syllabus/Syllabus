@@ -63,28 +63,33 @@ document.addEventListener('DOMContentLoaded', () => {
         .includes(group.toLowerCase());
   }
 
-  function render() {
-    const beltFilter = Array.from(beltSelect.selectedOptions).map(o => o.value);
-    const catFilter = Array.from(categorySelect.selectedOptions).map(o => o.value);
-    const search = searchInput.value.toLowerCase();
-    const filtered = {};
+function render() {
+  const beltFilter = Array.from(beltSelect.selectedOptions).map(o => o.value);
+  const catFilter = Array.from(categorySelect.selectedOptions).map(o => o.value);
+  const search = searchInput.value.toLowerCase();
+  const filtered = {};
 
-    for (const [belt, groups] of Object.entries(rawData)) {
-      if (beltFilter.length && !beltFilter.includes(belt)) continue;
-      for (const group in groups) {
-        if (isColorCategory(group)) continue;
-        if (catFilter.length && !catFilter.includes(group)) continue;
-        for (const technique of groups[group]) {
-          if (!technique.toLowerCase().includes(search)) continue;
-          if (!filtered[group]) filtered[group] = [];
-          filtered[group].push({ belt, technique });
-        }
-      }
-    }
-
-    displayFlat(filtered);
+  // ⛔ Don't display anything unless filters are applied
+  if (beltFilter.length === 0 && catFilter.length === 0 && search === '') {
+    main.innerHTML = '';
+    return;
   }
 
+  for (const [belt, groups] of Object.entries(rawData)) {
+    if (beltFilter.length && !beltFilter.includes(belt)) continue;
+    for (const group in groups) {
+      if (isColorCategory(group)) continue;
+      if (catFilter.length && !catFilter.includes(group)) continue;
+      for (const technique of groups[group]) {
+        if (!technique.toLowerCase().includes(search)) continue;
+        if (!filtered[group]) filtered[group] = [];
+        filtered[group].push({ belt, technique });
+      }
+    }
+  }
+
+  displayFlat(filtered);
+}
   function displayFlat(data) {
     main.innerHTML = '';
     if (Object.keys(data).length === 0) {
