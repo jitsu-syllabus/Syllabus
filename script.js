@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "Expected Competencies"
   ];
 
- const searchInput = document.getElementById('searchInput');
+const searchInput = document.getElementById('searchInput');
   const clearBtn = document.getElementById('clearFilters');
   const main = document.getElementById('techniques');
   const beltContainer = document.getElementById('beltButtons');
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const ul = document.createElement('ul');
       data[group].forEach(({ belt, technique }) => {
         const li = document.createElement('li');
-        li.innerHTML = `<strong>${belt}</strong>: ${technique}`;
+        li.innerHTML = `${technique} (<strong>${belt}</strong>)`;
         ul.appendChild(li);
       });
 
