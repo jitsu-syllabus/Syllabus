@@ -86,38 +86,3 @@ button#clearFilters {
   padding: 0.3em 0;
 }
 
-/* Responsive: Mobile and Small Tablets */
-@media screen and (max-width: 900px) {
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.4rem;
-  }
-
-  label {
-    font-size: 1.3rem;
-  }
-
-  input[type="text"] {
-    font-size: 1.2rem;
-    padding: 12px;
-  }
-
-  .button-group {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .button-group button {
-    font-size: 1.2rem;
-    min-width: 80px;
-    flex-grow: 1;
-    white-space: nowrap;
-  }
-
-  .category-heading {
-    font-size: 1.4em;
-  }
-}
