@@ -1,10 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
   let rawData = [];
-  const beltSelect = document.getElementById('beltSelect');
-  const categorySelect = document.getElementById('categorySelect');
   const searchInput = document.getElementById('searchInput');
   const clearBtn = document.getElementById('clearFilters');
   const main = document.getElementById('techniques');
+
+  const beltContainer = document.getElementById('beltButtons');
+  const categoryContainer = document.getElementById('categoryButtons');
+
+  const activeBelts = new Set();
+  const activeCategories = new Set();
 
   const controlBar = document.createElement('div');
   controlBar.style.marginBottom = '1rem';
@@ -23,9 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
   controlBar.appendChild(toggleBtn);
 
   clearBtn.addEventListener('click', () => {
-    Array.from(beltSelect.options).forEach(opt => opt.selected = false);
-    Array.from(categorySelect.options).forEach(opt => opt.selected = false);
+    activeBelts.clear();
+    activeCategories.clear();
     searchInput.value = '';
+    document.querySelectorAll('.button-group button').forEach(btn => btn.classList.remove('active'));
     render();
     requestAnimationFrame(() => {
       document.querySelectorAll('details').forEach(d => d.open = false);
@@ -36,25 +41,33 @@ document.addEventListener('DOMContentLoaded', () => {
   async function loadData() {
     const json = await fetch('syllabus.json').then(r => r.json());
     rawData = json;
-    populateBeltFilter();
-    populateCategoryFilter();
-    beltSelect.addEventListener('change', render);
-    categorySelect.addEventListener('change', render);
+    createButtons(Object.keys(json), beltContainer, activeBelts);
+    const categories = new Set();
+    Object.values(json).forEach(groupMap => {
+      Object.keys(groupMap).forEach(cat => categories.add(cat));
+    });
+    createButtons([...categories].sort(), categoryContainer, activeCategories);
     searchInput.addEventListener('input', render);
     render();
   }
 
-  function populateBeltFilter() {
-    const belts = Object.keys(rawData);
-    beltSelect.innerHTML = belts.map(b => `<option value="${b}">${b}</option>`).join('');
-  }
-
-  function populateCategoryFilter() {
-    const cats = new Set();
-    Object.values(rawData).forEach(groupMap => {
-      Object.keys(groupMap).forEach(cat => cats.add(cat));
+  function createButtons(items, container, activeSet) {
+    container.innerHTML = '';
+    items.forEach(item => {
+      const btn = document.createElement('button');
+      btn.textContent = item;
+      btn.addEventListener('click', () => {
+        if (activeSet.has(item)) {
+          activeSet.delete(item);
+          btn.classList.remove('active');
+        } else {
+          activeSet.add(item);
+          btn.classList.add('active');
+        }
+        render();
+      });
+      container.appendChild(btn);
     });
-    categorySelect.innerHTML = [...cats].sort().map(c => `<option value="${c}">${c}</option>`).join('');
   }
 
   function isColorCategory(group) {
@@ -63,33 +76,33 @@ document.addEventListener('DOMContentLoaded', () => {
         .includes(group.toLowerCase());
   }
 
-function render() {
-  const beltFilter = Array.from(beltSelect.selectedOptions).map(o => o.value);
-  const catFilter = Array.from(categorySelect.selectedOptions).map(o => o.value);
-  const search = searchInput.value.toLowerCase();
-  const filtered = {};
+  function render() {
+    const beltFilter = [...activeBelts];
+    const catFilter = [...activeCategories];
+    const search = searchInput.value.toLowerCase();
+    const filtered = {};
 
-  // ⛔ Don't display anything unless filters are applied
-  if (beltFilter.length === 0 && catFilter.length === 0 && search === '') {
-    main.innerHTML = '';
-    return;
-  }
+    if (beltFilter.length === 0 && catFilter.length === 0 && search === '') {
+      main.innerHTML = '';
+      return;
+    }
 
-  for (const [belt, groups] of Object.entries(rawData)) {
-    if (beltFilter.length && !beltFilter.includes(belt)) continue;
-    for (const group in groups) {
-      if (isColorCategory(group)) continue;
-      if (catFilter.length && !catFilter.includes(group)) continue;
-      for (const technique of groups[group]) {
-        if (!technique.toLowerCase().includes(search)) continue;
-        if (!filtered[group]) filtered[group] = [];
-        filtered[group].push({ belt, technique });
+    for (const [belt, groups] of Object.entries(rawData)) {
+      if (beltFilter.length && !beltFilter.includes(belt)) continue;
+      for (const group in groups) {
+        if (isColorCategory(group)) continue;
+        if (catFilter.length && !catFilter.includes(group)) continue;
+        for (const technique of groups[group]) {
+          if (!technique.toLowerCase().includes(search)) continue;
+          if (!filtered[group]) filtered[group] = [];
+          filtered[group].push({ belt, technique });
+        }
       }
     }
+
+    displayFlat(filtered);
   }
 
-  displayFlat(filtered);
-}
   function displayFlat(data) {
     main.innerHTML = '';
     if (Object.keys(data).length === 0) {
