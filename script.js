@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
   let rawData = [];
   const categoryOrder = [
-    "Martial Warm Up",
+    "Martial Warmup Drills",
     "Ukemi Waza",
     "Atemi Waza",
-    "Ne waza",
+    "Ne Waza",
     "Releases",
-    "Kansetsu waza",
-    "Nage waza",
-    "Smime Waze"
+    "Kansetsu Waza",
+    "Nage Waza",
+    "Shime Waza",
     "Scenario Training",
     "Expected Competencies"
   ];
