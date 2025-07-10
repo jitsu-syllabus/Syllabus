@@ -116,7 +116,7 @@ details summary {
   }
 
   .button-group button {
-    font-size: 2.5rem;
+    font-size: 5rem;
     min-width: 80px;
     flex-grow: 1;
     white-space: nowrap;
