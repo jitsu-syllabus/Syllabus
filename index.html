@@ -2,33 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jiu Jitsu Syllabus Browser</title>
+  <title>Jitsu Syllabus</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>Jiu Jitsu Syllabus Browser</h1>
-    <div class="controls">
-      <div class="filter">
-        <label for="beltSelect">Belt:</label>
-        <select id="beltSelect"></select>
-      </div>
-      <div class="filter">
-        <label for="categorySelect">Category:</label>
-        <select id="categorySelect">
-          <option value="All">All Categories</option>
-        </select>
-      </div>
-      <div class="filter search">
-        <input type="text" id="searchInput" placeholder="Search techniques…" />
-      </div>
-      <div class="filter clear">
-        <button id="clearFilters">Clear All Filters</button>
-      </div>
-    </div>
-  </header>
-  <main id="techniques"></main>
+  <h1>Jitsu Syllabus Browser</h1>
+
+  <div class="filter-section">
+    <label for="beltSelect">Select Belts:</label>
+    <select id="beltSelect" multiple></select>
+
+    <label for="categorySelect">Select Categories:</label>
+    <select id="categorySelect" multiple></select>
+
+    <label for="searchInput">Search Techniques:</label>
+    <input type="text" id="searchInput" placeholder="Type to search..." />
+
+    <button id="clearFilters">Clear Filters</button>
+  </div>
+
+  <div id="techniques"></div>
+
   <script src="script.js"></script>
 </body>
 </html>
