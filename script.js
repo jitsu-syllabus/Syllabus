@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "Expected Competencies"
   ];
 
-  const searchInput = document.getElementById('searchInput');
+ const searchInput = document.getElementById('searchInput');
   const clearBtn = document.getElementById('clearFilters');
   const main = document.getElementById('techniques');
   const beltContainer = document.getElementById('beltButtons');
@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
   async function loadData() {
     const json = await fetch('syllabus.json').then(r => r.json());
     rawData = json;
+
     createButtons(Object.keys(json), beltContainer, activeBelts);
 
     const categories = new Set();
@@ -59,7 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
       Object.keys(groupMap).forEach(cat => categories.add(cat));
     });
 
-    const sortedCategories = categoryOrder.filter(cat => categories.has(cat));
+    let sortedCategories = categoryOrder.filter(cat => categories.has(cat));
+    if (sortedCategories.length === 0) {
+      sortedCategories = [...categories].sort(); // fallback
+    }
+
     createButtons(sortedCategories, categoryContainer, activeCategories);
 
     searchInput.addEventListener('input', render);
@@ -137,4 +142,12 @@ document.addEventListener('DOMContentLoaded', () => {
       data[group].forEach(({ belt, technique }) => {
         const li = document.createElement('li');
         li.textContent = `${technique} (${belt})`;
-        ul.appendChild
+        ul.appendChild(li);
+      });
+
+      main.appendChild(ul);
+    });
+  }
+
+  loadData();
+});
