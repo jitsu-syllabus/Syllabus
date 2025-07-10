@@ -94,19 +94,19 @@ details summary {
 /* Mobile tweaks */
 @media screen and (max-width: 600px) {
   h1 {
-    font-size: 2rem;
+    font-size: 4rem;
   }
 
   h2 {
-    font-size: 1.4rem;
+    font-size: 3rem;
   }
 
   label {
-    font-size: 1.3rem;
+    font-size: 2.5rem;
   }
 
   input[type="text"] {
-    font-size: 1.2rem;
+    font-size: 2.5rem;
     padding: 12px;
   }
 
@@ -116,13 +116,13 @@ details summary {
   }
 
   .button-group button {
-    font-size: 1.2rem;
+    font-size: 2.5rem;
     min-width: 80px;
     flex-grow: 1;
     white-space: nowrap;
   }
 
   .category-heading {
-    font-size: 1.4em;
+    font-size: 2.5em;
   }
 }
