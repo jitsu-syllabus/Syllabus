@@ -1,15 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
   let rawData = [];
+  const categoryOrder = [
+    "Martial Warm Up",
+    "Ukemi Waza",
+    "Atemi Waza",
+    "Ne waza",
+    "Releases",
+    "Kansetsu waza",
+    "Nage waza",
+    "Smime Waze"
+    "Scenario Training",
+    "Expected Competencies"
+  ];
+
   const searchInput = document.getElementById('searchInput');
   const clearBtn = document.getElementById('clearFilters');
   const main = document.getElementById('techniques');
   const beltContainer = document.getElementById('beltButtons');
   const categoryContainer = document.getElementById('categoryButtons');
-
   const activeBelts = new Set();
   const activeCategories = new Set();
 
-  // Expand/Collapse button
   const controlBar = document.createElement('div');
   controlBar.style.marginBottom = '1rem';
   const toggleBtn = document.createElement('button');
@@ -26,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
   main.before(controlBar);
   controlBar.appendChild(toggleBtn);
 
-  // Clear Filters
   clearBtn.addEventListener('click', () => {
     activeBelts.clear();
     activeCategories.clear();
@@ -39,16 +49,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Load and parse syllabus data
   async function loadData() {
     const json = await fetch('syllabus.json').then(r => r.json());
     rawData = json;
     createButtons(Object.keys(json), beltContainer, activeBelts);
+
     const categories = new Set();
     Object.values(json).forEach(groupMap => {
       Object.keys(groupMap).forEach(cat => categories.add(cat));
     });
-    createButtons([...categories].sort(), categoryContainer, activeCategories);
+
+    const sortedCategories = categoryOrder.filter(cat => categories.has(cat));
+    createButtons(sortedCategories, categoryContainer, activeCategories);
+
     searchInput.addEventListener('input', render);
     render();
   }
@@ -112,7 +125,9 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    for (const group in data) {
+    categoryOrder.forEach(group => {
+      if (!data[group]) return;
+
       const header = document.createElement('div');
       header.className = 'category-heading';
       header.textContent = group;
@@ -122,14 +137,4 @@ document.addEventListener('DOMContentLoaded', () => {
       data[group].forEach(({ belt, technique }) => {
         const li = document.createElement('li');
         li.textContent = `${technique} (${belt})`;
-        ul.appendChild(li);
-      });
-
-      main.appendChild(ul);
-    }
-
-    toggleBtn.textContent = 'Collapse All';
-  }
-
-  loadData();
-});
+        ul.appendChild
