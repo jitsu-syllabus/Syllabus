@@ -1,105 +1,58 @@
 body {
-  margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f8f9fa;
-  color: #212529;
-}
-
-header {
-  padding: 1.5rem;
-  background-color: #ffffff;
-  border-bottom: 1px solid #dee2e6;
+  margin: 20px;
+  background: #f9f9f9;
 }
 
 h1 {
-  margin-top: 0;
-  margin-bottom: 1.2rem;
-  text-align: center;
-  color: #343a40;
+  color: #333;
 }
 
-.controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  align-items: flex-end;
-  margin-bottom: 1.5rem;
+.filter-section {
+  margin-bottom: 20px;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
-.filter {
-  display: flex;
-  flex-direction: column;
-  font-size: 0.9rem;
+label {
+  display: block;
+  margin-top: 10px;
 }
 
-.filter label {
-  margin-bottom: 0.3rem;
-  font-weight: bold;
+select[multiple] {
+  width: 100%;
+  height: 120px;
+  font-size: 1em;
+  margin-bottom: 10px;
 }
 
-input[type="text"],
-select,
+input[type="text"] {
+  width: 100%;
+  padding: 6px;
+  margin-bottom: 10px;
+}
+
 button {
-  font-size: 1rem;
-  padding: 0.4rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-button#clearFilters {
-  background-color: #dee2e6;
-  border: none;
+  padding: 6px 12px;
+  font-size: 1em;
   cursor: pointer;
-  transition: background 0.2s;
 }
 
-button#clearFilters:hover {
-  background-color: #ced4da;
+.category-heading {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 1.5em;
+  border-bottom: 2px solid #ccc;
 }
 
-button {
-  background-color: #e2e6ea;
-  border: none;
-  border-radius: 4px;
+.technique-entry {
+  margin-left: 1em;
+  padding: 0.3em 0;
 }
 
-button:hover {
-  background-color: #d6d8db;
-}
-
-main {
-  padding: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-/* Belt-level details */
 details summary {
   font-weight: bold;
   cursor: pointer;
-  margin: 0.8rem 0 0.4rem;
-}
-
-/* Category-level inside belt */
-details details {
-  margin-left: 1rem;
-}
-
-details details > ul {
-  margin-left: 1.2rem;
-}
-
-/* Category-only stepped result */
-.stepped {
-  margin-left: 1rem;
-}
-
-ul {
-  padding-left: 1.2rem;
-  margin: 0.4rem 0 1rem;
-}
-
-li {
-  margin: 0.2rem 0;
 }
