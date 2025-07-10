@@ -3,13 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.getElementById('searchInput');
   const clearBtn = document.getElementById('clearFilters');
   const main = document.getElementById('techniques');
-
   const beltContainer = document.getElementById('beltButtons');
   const categoryContainer = document.getElementById('categoryButtons');
 
   const activeBelts = new Set();
   const activeCategories = new Set();
 
+  // Expand/Collapse button
   const controlBar = document.createElement('div');
   controlBar.style.marginBottom = '1rem';
   const toggleBtn = document.createElement('button');
@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   main.before(controlBar);
   controlBar.appendChild(toggleBtn);
 
+  // Clear Filters
   clearBtn.addEventListener('click', () => {
     activeBelts.clear();
     activeCategories.clear();
@@ -38,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Load and parse syllabus data
   async function loadData() {
     const json = await fetch('syllabus.json').then(r => r.json());
     rawData = json;
